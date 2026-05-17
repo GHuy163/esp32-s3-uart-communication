@@ -1,2 +1,54 @@
-# esp32-s3-uart-communication
-UART communication between ESP32-S3 and PC using a CP2102 USB-to-UART converter.
+# ESP32-S3 UART Communication
+
+This project demonstrates UART communication between the ESP32-S3 YoloUno development board and a personal computer using a CP2102 USB-to-UART converter. The ESP32-S3 is configured as the transmitter and periodically sends text messages through the UART1 peripheral. The transmitted data can be observed on the computer using any serial terminal application such as PuTTY, Tera Term, or the Arduino Serial Monitor.
+
+## Overview
+
+UART (Universal Asynchronous Receiver/Transmitter) is one of the most commonly used communication protocols in embedded systems. It provides a simple and reliable way for microcontrollers to exchange data with external devices such as sensors, wireless modules, and computers.
+
+In this project, the ESP32-S3 continuously sends a predefined message through UART1. The output is routed to a CP2102 USB-to-UART converter, which allows the PC to receive the data through a standard COM port.
+
+This project focuses on:
+- Configuring UART1 on the ESP32-S3.
+- Establishing the correct hardware connection.
+- Periodically transmitting serial data.
+- Verifying communication on a PC.
+
+## Software Requirements
+
+- Visual Studio Code
+- PlatformIO Extension
+
+## Hardware Requirements
+
+- ESP32-S3 YoloUno Development Board
+- CP2102 USB-to-UART Converter
+- USB-C cable for ESP32-S3
+- USB cable for CP2102
+- Jumper wires
+
+## Hardware Connection
+
+This project establishes UART communication between the ESP32-S3 YoloUno development board and a personal computer using a CP2102 USB-to-UART converter.
+
+### Wiring Diagram
+
+| ESP32-S3 YoloUno | CP2102 USB-to-UART | Description |
+|------------------|-------------------|-------------|
+| GPIO17 (TX1)     | RXD               | Transmits data from the ESP32-S3 to the PC |
+| GPIO18 (RX1)     | TXD               | Receives data from the PC (optional for future bidirectional communication) |
+| GND              | GND               | Common ground reference |
+
+### UART Connection Principle
+
+UART communication requires crossing the transmit and receive lines:
+
+- TX (Transmit) of the ESP32-S3 must be connected to RXD of the CP2102.
+- RX (Receive) of the ESP32-S3 must be connected to TXD of the CP2102.
+- Both devices must share the same GND connection.
+
+### Data Flow
+
+ESP32-S3 → UART1 → CP2102 → COM Port → Python Script → Terminal
+
+
