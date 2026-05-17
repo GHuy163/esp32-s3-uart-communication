@@ -49,6 +49,21 @@ UART communication requires crossing the transmit and receive lines:
 
 ### Data Flow
 
-ESP32-S3 → UART1 → CP2102 → COM Port → Python Script → Terminal
+ESP32-S3 → UART1 → CP2102 → COM Port → PC Serial Terminal
 
+
+---
+
+## Build and Upload
+
+```markdown
+## Build and Upload
+
+1. Open the project in Visual Studio Code.
+2. Install the PlatformIO extension.
+3. Connect the ESP32-S3 board via USB.
+4. Build the project.
+5. Upload the firmware to the board.
+6. Connect the CP2102 converter to the PC.
+7. Open a serial terminal at 115200 baud.
 
